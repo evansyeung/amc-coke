@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "AMC Coke",
+  "description": "AMC Coke",
+  "version": "1.0",
+  "icons": {
+    "16": "/images/amc.png",
+    "48": "/images/amc.png",
+    "128": "/images/amc.png"
+  },
+  "page_action": {
+    "default_icon": {
+      "16": "/images/amc.png",
+      "48": "/images/amc.png",
+      "128": "/images/amc.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://us.coca-cola.com/*"],
+      "run_at": "document_idle",
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "permissions": ["tabs"]
+}
