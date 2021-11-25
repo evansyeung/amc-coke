@@ -9,13 +9,10 @@
 // }
 
 chrome.runtime.onMessage.addListener(function (message, sender) {
-  if (message.type == "NAVIGATE") {
-    chrome.tabs.update(sender.tab.id, { url: "https://google.com" });
-  }
-});
-
-chrome.runtime.onMessage.addListener(function (message, sender) {
+  console.log(message);
   if (message.type == "NAVIGATE") {
     chrome.tabs.update(sender.tab.id, { url: message.redirect });
+  } else if (message.type == "RELOAD") {
+    chrome.tabs.reload(sender.tab.id);
   }
 });
